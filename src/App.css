@@ -1,0 +1,15 @@
+.container {
+    background: url("https://www.maxpixel.net/static/photo/1x/Background-Hobby-Background-Jigsaw-Puzzle-Puzzle-3223436.jpg");
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+
+}
+
+.play{
+    color: bisque;
+    font-size: 50px;
+}
