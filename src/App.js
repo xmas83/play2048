@@ -33,6 +33,7 @@ function App() {
     addNumber(newGrid)
     setData(newGrid)
     setNewGame(false)
+    setGameOver(false)
   }
 
   const addNumber = (newGrid) => {
@@ -85,6 +86,7 @@ function App() {
         } else if (b[slow] !== 0 && b[fast] !== 0) {
           if (b[slow] === b[fast]) {
             b[slow] = b[slow] + b[fast];
+            checkScoreAndBest(b[slow]);
             b[fast] = 0;
             fast = slow + 1;
             slow++;
@@ -130,6 +132,7 @@ function App() {
         } else if (b[slow] !== 0 && b[fast] !== 0) {
           if (b[slow] === b[fast]) {
             b[slow] = b[slow] + b[fast];
+            checkScoreAndBest(b[slow]);
             b[fast] = 0;
             fast = slow - 1;
             slow--;
@@ -173,6 +176,7 @@ function App() {
         } else if (b[slow][i] !== 0 && b[fast][i] !== 0) {
           if (b[slow][i] === b[fast][i]) {
             b[slow][i] = b[slow][i] + b[fast][i];
+            checkScoreAndBest(b[slow][i]);
             b[fast][i] = 0;
             fast = slow - 1;
             slow--;
@@ -216,6 +220,7 @@ function App() {
         } else if (b[slow][i] !== 0 && b[fast][i] !== 0) {
           if (b[slow][i] === b[fast][i]) {
             b[slow][i] = b[slow][i] + b[fast][i];
+            checkScoreAndBest(b[slow[i]]);
             b[fast][i] = 0;
             fast = slow + 1;
             slow++;
@@ -257,6 +262,16 @@ function App() {
     return true;
   };
 
+  const checkScoreAndBest = (newScore) => {
+    if (newScore != undefined) {
+      setScore(score + newScore);
+
+      if (score + newScore >= best) {
+        setBest(score + newScore);
+      }
+    }
+  }
+
   const NewGame = () => {
     setNewGame(true);
     setScore(0);
@@ -289,8 +304,8 @@ function App() {
 
     let gameOvers = checkIfGameOver()
     if (gameOvers) {
-      alert('Game Over')
-      setGameOver(true)
+      alert('Game Over');
+      setGameOver(true);
     }
   }
 

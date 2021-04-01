@@ -13,7 +13,7 @@ const Header = ({score, best, onClickNewGame}) => {
           </div>
           <div className='header__score-box'>
             <span className='header__score-box--title'>BEST</span>
-            <span>668</span>
+            <span>{best}</span>
           </div>
           <button className='header__button' onClick={onClickNewGame}>
             New Game
